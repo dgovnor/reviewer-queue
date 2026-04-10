@@ -1,9 +1,3 @@
-"""Unit tests for the reviewer queue state machine and sorting.
-
-Run with:
-    .venv/bin/python -m unittest discover -s tests
-"""
-
 from __future__ import annotations
 
 import unittest
