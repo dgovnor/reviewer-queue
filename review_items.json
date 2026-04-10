@@ -1,0 +1,134 @@
+[
+  {
+    "id": "RV-1024",
+    "title": "Wire transfer limit increase",
+    "submitted_at": "2026-04-02T08:15:00Z",
+    "risk_level": "high",
+    "customer_tier": "priority",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 2,
+    "summary": "Customer requested a same-day increase to a large outgoing transfer limit."
+  },
+  {
+    "id": "RV-1025",
+    "title": "Mismatch between legal name and tax record",
+    "submitted_at": "2026-04-01T09:30:00Z",
+    "risk_level": "high",
+    "customer_tier": "standard",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 3,
+    "summary": "Submitted onboarding documents do not match the tax entity name on file."
+  },
+  {
+    "id": "RV-1026",
+    "title": "Urgent card spending unlock for travel",
+    "submitted_at": "2026-04-03T07:20:00Z",
+    "risk_level": "medium",
+    "customer_tier": "priority",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 1,
+    "summary": "Priority customer requested an urgent temporary spending unlock before international travel."
+  },
+  {
+    "id": "RV-1027",
+    "title": "Business account name correction",
+    "submitted_at": "2026-04-02T10:45:00Z",
+    "risk_level": "low",
+    "customer_tier": "standard",
+    "status": "in_review",
+    "assigned_reviewer": "sam",
+    "notes_count": 1,
+    "summary": "Submitted legal documents to correct the registered business name."
+  },
+  {
+    "id": "RV-1028",
+    "title": "Repeated beneficiary bank update",
+    "submitted_at": "2026-04-01T14:05:00Z",
+    "risk_level": "medium",
+    "customer_tier": "standard",
+    "status": "in_review",
+    "assigned_reviewer": "morgan",
+    "notes_count": 5,
+    "summary": "Beneficiary bank details have been updated twice in 24 hours for the same payout profile."
+  },
+  {
+    "id": "RV-1029",
+    "title": "Document resubmission after prior rejection",
+    "submitted_at": "2026-03-31T16:10:00Z",
+    "risk_level": "medium",
+    "customer_tier": "priority",
+    "status": "approved",
+    "assigned_reviewer": "alex",
+    "notes_count": 4,
+    "summary": "Customer resubmitted compliance documents after prior corrections and they have been approved."
+  },
+  {
+    "id": "RV-1030",
+    "title": "Manual payout review for new destination country",
+    "submitted_at": "2026-04-02T11:55:00Z",
+    "risk_level": "high",
+    "customer_tier": "priority",
+    "status": "in_review",
+    "assigned_reviewer": "alex",
+    "notes_count": 2,
+    "summary": "Large payout requested to a destination country not previously used by this account."
+  },
+  {
+    "id": "RV-1031",
+    "title": "Low-value address change request",
+    "submitted_at": "2026-04-03T08:40:00Z",
+    "risk_level": "low",
+    "customer_tier": "standard",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 0,
+    "summary": "Customer requested an address change with supporting utility bill."
+  },
+  {
+    "id": "RV-1032",
+    "title": "Repeated payout destination change",
+    "submitted_at": "2026-04-01T17:20:00Z",
+    "risk_level": "high",
+    "customer_tier": "standard",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 4,
+    "summary": "Third payout destination change requested in two days for the same merchant account."
+  },
+  {
+    "id": "RV-1033",
+    "title": "Escalated source-of-funds clarification",
+    "submitted_at": "2026-03-31T12:00:00Z",
+    "risk_level": "high",
+    "customer_tier": "priority",
+    "status": "escalated",
+    "assigned_reviewer": "sam",
+    "notes_count": 6,
+    "summary": "Case was escalated after conflicting explanations about source of funds."
+  },
+  {
+    "id": "RV-1034",
+    "title": "Rejected duplicate business verification",
+    "submitted_at": "2026-03-30T13:25:00Z",
+    "risk_level": "low",
+    "customer_tier": "standard",
+    "status": "rejected",
+    "assigned_reviewer": "morgan",
+    "notes_count": 2,
+    "summary": "Duplicate verification submission for a business already verified under the same legal entity."
+  },
+  {
+    "id": "RV-1035",
+    "title": "Priority customer ownership update",
+    "submitted_at": "2026-04-02T06:50:00Z",
+    "risk_level": "medium",
+    "customer_tier": "priority",
+    "status": "unassigned",
+    "assigned_reviewer": null,
+    "notes_count": 2,
+    "summary": "Ownership structure changed and new beneficial owner documents were uploaded."
+  }
+]

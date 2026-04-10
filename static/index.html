@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reviewer Queue</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Reviewer Queue</h1>
+      <div class="reviewer">Signed in as <strong>{{ reviewer || '…' }}</strong></div>
+    </header>
+
+    <div v-if="flash" :class="['flash', flash.kind]" @click="flash = null">
+      {{ flash.message }}
+    </div>
+
+    <main class="layout">
+      <section class="queue">
+        <div class="section-header">
+          <h2>Active queue</h2>
+          <span class="count" v-if="!loadingQueue">{{ queue.length }} items</span>
+        </div>
+
+        <div v-if="loadingQueue" class="state">Loading queue…</div>
+        <div v-else-if="queueError" class="state error">{{ queueError }}</div>
+        <div v-else-if="queue.length === 0" class="state">Queue is empty.</div>
+        <ul v-else class="queue-list">
+          <li
+            v-for="(item, idx) in queue"
+            :key="item.id"
+            :class="['queue-item', { active: item.id === selectedId }]"
+            @click="selectItem(item.id)"
+          >
+            <div class="queue-item-top">
+              <span class="rank">#{{ idx + 1 }}</span>
+              <span class="item-id">{{ item.id }}</span>
+              <span :class="['badge', 'risk-' + item.risk_level]">{{ item.risk_level }}</span>
+              <span :class="['badge', 'tier-' + item.customer_tier]">{{ item.customer_tier }}</span>
+            </div>
+            <div class="queue-item-title">{{ item.title }}</div>
+            <div class="queue-item-meta">
+              <span :class="['status', 'status-' + item.status]">{{ item.status }}</span>
+              <span class="submitted">submitted {{ formatDate(item.submitted_at) }}</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="detail">
+        <div v-if="loadingDetail" class="state">Loading item…</div>
+        <div v-else-if="detailError" class="state error">{{ detailError }}</div>
+        <div v-else-if="!selected" class="state empty">Select an item to inspect its details.</div>
+        <article v-else class="detail-card">
+          <header class="detail-header">
+            <div>
+              <div class="item-id">{{ selected.id }}</div>
+              <h2>{{ selected.title }}</h2>
+            </div>
+            <span :class="['status-pill', 'status-' + selected.status]">{{ selected.status }}</span>
+          </header>
+
+          <dl class="fields">
+            <div><dt>Risk</dt><dd :class="'risk-' + selected.risk_level">{{ selected.risk_level }}</dd></div>
+            <div><dt>Customer tier</dt><dd>{{ selected.customer_tier }}</dd></div>
+            <div><dt>Submitted</dt><dd>{{ formatDate(selected.submitted_at) }}</dd></div>
+            <div><dt>Assigned reviewer</dt><dd>{{ selected.assigned_reviewer || '— unassigned —' }}</dd></div>
+            <div><dt>Notes on file</dt><dd>{{ selected.notes_count }}</dd></div>
+          </dl>
+
+          <p class="summary">{{ selected.summary }}</p>
+
+          <footer class="actions">
+            <div v-if="selected.allowed_actions.length === 0" class="no-actions">
+              No actions available — item is in a terminal state.
+            </div>
+            <button
+              v-for="action in selected.allowed_actions"
+              :key="action"
+              :disabled="actionInFlight"
+              :class="['btn', 'btn-' + action]"
+              @click="performAction(action)"
+            >
+              {{ actionLabel(action) }}
+            </button>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
